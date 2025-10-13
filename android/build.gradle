@@ -54,6 +54,17 @@ android {
         testImplementation("org.mockito:mockito-core:5.0.0")
     }
 
+    buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
     testOptions {
         unitTests.all {
             useJUnitPlatform()
