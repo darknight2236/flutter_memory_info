@@ -1,6 +1,6 @@
 name: flutter_memory_info
 description: "A Flutter plugin for getting memory info."
-version: 0.0.2
+version: 0.0.3
 repository: https://github.com/wgh136/flutter_memory_info
 
 platforms:

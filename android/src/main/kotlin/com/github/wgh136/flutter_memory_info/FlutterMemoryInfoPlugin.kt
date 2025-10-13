@@ -3,7 +3,6 @@ package com.github.wgh136.flutter_memory_info
 import android.app.Activity
 import android.app.ActivityManager
 import android.content.Context
-import androidx.core.content.ContextCompat.getSystemService
 
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.plugin.common.MethodCall
@@ -50,14 +49,14 @@ class FlutterMemoryInfoPlugin : FlutterPlugin, MethodCallHandler, ActivityAware 
     }
 
     fun getTotalPhysicalMemorySize(): Long {
-        val activityManager = getSystemService<ActivityManager>(context, ActivityManager::class.java) as ActivityManager
+        val activityManager = context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
         val memoryInfo = ActivityManager.MemoryInfo()
         activityManager.getMemoryInfo(memoryInfo)
         return memoryInfo.totalMem
     }
 
     fun getFreePhysicalMemorySize(): Long {
-        val activityManager = getSystemService<ActivityManager>(context, ActivityManager::class.java) as ActivityManager
+        val activityManager = context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
         val memoryInfo = ActivityManager.MemoryInfo()
         activityManager.getMemoryInfo(memoryInfo)
         return memoryInfo.availMem
